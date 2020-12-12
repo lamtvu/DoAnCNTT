@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QLSachDienTu.Controllers;
+using QLSachDienTu.Models;
 
 namespace QLSachDienTu.Views
 {
@@ -20,19 +22,84 @@ namespace QLSachDienTu.Views
 
         private void SetStyleDataGripView()
         {
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(55, 71, 79);
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridView1.ColumnHeadersHeight = 40;
-            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Gainsboro;
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridView1.RowsDefaultCellStyle.SelectionBackColor = Color.FromArgb(120, 144, 156);
+            dgvBooks.EnableHeadersVisualStyles = false;
+            dgvBooks.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBooks.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(55, 71, 79);
+            dgvBooks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dgvBooks.ColumnHeadersHeight = 40;
+            dgvBooks.ColumnHeadersDefaultCellStyle.ForeColor = Color.Gainsboro;
+            dgvBooks.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvBooks.RowsDefaultCellStyle.SelectionBackColor = Color.FromArgb(120, 144, 156);
+            dgvBooks.RowsDefaultCellStyle.ForeColor = Color.Black;
+            dgvBooks.RowsDefaultCellStyle.BackColor = Color.White;
+        }
+
+        private void PersonalForm_Load(object sender, EventArgs e)
+        {
+            reload();
+        }
+        private void reload()
+        {
+            txbMail.Text = MainForm.currentUser.mail;
+            txbOffice.Text = MainForm.currentUser.office;
+            txbUserName.Text = MainForm.currentUser.userName;
+            dgvBooks.DataSource = BookController.getBooks(MainForm.currentUser.userName);
+            pictureBox1.BackgroundImage = ImageController.ConvertByteArrayToImage(MainForm.currentUser.avatar);
+        }
+        private void btAdd_Click(object sender, EventArgs e)
+        {
+            using (EditBookForm form = new EditBookForm())
+            {
+                form.FormBorderStyle = FormBorderStyle.None;
+                form.ShowDialog();
+            }
+            reload();
         }
         private void btEdit_Click(object sender, EventArgs e)
         {
+            using (EditUserForm form = new EditUserForm(MainForm.currentUser))
+            {
+                form.FormBorderStyle = FormBorderStyle.None;
+                form.ShowDialog();
+            }
+            this.reload();
+        }
 
+        private void edit_Click(object sender, EventArgs e)
+        {
+            using (EditBookForm form = new EditBookForm("Change", BookController.GetBook(Convert.ToInt32(dgvBooks.CurrentRow.Cells["cID"].Value))))
+            {
+                form.FormBorderStyle = FormBorderStyle.None;
+                form.ShowDialog();
+            }
+            reload();
+
+        }
+
+        private void btDelete_Click(object sender, EventArgs e)
+        {
+            using (MessengerForm form = new MessengerForm("Do you delete this book"))
+            {
+                form.FormBorderStyle = FormBorderStyle.None;
+                if (form.ShowDialog() == DialogResult.Yes)
+                {
+                    BookController.deleteBook(MainForm.currentUser.userName, Convert.ToInt32(dgvBooks.CurrentRow.Cells["cId"].Value));
+                }
+            }
+            reload();
+
+        }
+
+        private void btnDowload_Click(object sender, EventArgs e)
+        {
+            Book book = BookController.GetBook(Convert.ToInt32(dgvBooks.CurrentRow.Cells["cId"].Value));
+            string path = fileController.GetSavePath(book.fileType, book.bookName);
+            if (path == string.Empty)
+            {
+                return;
+            }
+            fileController.DowloadFile(book.source, fileController.GetSavePath(book.fileType, book.bookName));
         }
     }
 }

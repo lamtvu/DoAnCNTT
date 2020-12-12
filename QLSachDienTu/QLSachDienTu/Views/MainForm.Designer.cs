@@ -88,6 +88,7 @@
             this.btLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btLogout.UseVisualStyleBackColor = true;
+            this.btLogout.Click += new System.EventHandler(this.btLogout_Click);
             // 
             // btSchedule
             // 
@@ -357,7 +358,9 @@
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.panelLeftMenu);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.panelLeftMenu.ResumeLayout(false);
             this.panelLeftTop.ResumeLayout(false);
             this.panelLeftTop.PerformLayout();

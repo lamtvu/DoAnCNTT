@@ -31,27 +31,40 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.btSearch = new FontAwesome.Sharp.IconButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbSearchString = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btAdd = new FontAwesome.Sharp.IconButton();
-            this.btDelete = new FontAwesome.Sharp.IconButton();
-            this.tbNBP = new System.Windows.Forms.TextBox();
-            this.tbMail = new System.Windows.Forms.TextBox();
-            this.tbOffice = new System.Windows.Forms.TextBox();
-            this.tbName = new System.Windows.Forms.TextBox();
+            this.cbbOffice = new System.Windows.Forms.ComboBox();
+            this.btBrown = new System.Windows.Forms.Button();
+            this.ptbAvatar = new System.Windows.Forms.PictureBox();
+            this.pnFunction = new System.Windows.Forms.Panel();
+            this.btDelete = new System.Windows.Forms.Button();
+            this.btAdd = new System.Windows.Forms.Button();
+            this.pnAdd = new System.Windows.Forms.Panel();
+            this.txbPass = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btCancel = new System.Windows.Forms.Button();
+            this.btnOk = new System.Windows.Forms.Button();
+            this.tbMail = new System.Windows.Forms.TextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cOffice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).BeginInit();
+            this.pnFunction.SuspendLayout();
+            this.pnAdd.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -76,57 +89,92 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.dataGridView1);
+            this.panel5.Controls.Add(this.dgvUsers);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 48);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(521, 402);
             this.panel5.TabIndex = 1;
             // 
+            // dgvUsers
+            // 
+            this.dgvUsers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(164)))), ((int)(((byte)(174)))));
+            this.dgvUsers.ColumnHeadersHeight = 29;
+            this.dgvUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cUsername,
+            this.cOffice,
+            this.cEmail});
+            this.dgvUsers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvUsers.Location = new System.Drawing.Point(0, 0);
+            this.dgvUsers.MultiSelect = false;
+            this.dgvUsers.Name = "dgvUsers";
+            this.dgvUsers.RowHeadersWidth = 51;
+            this.dgvUsers.RowTemplate.Height = 24;
+            this.dgvUsers.Size = new System.Drawing.Size(521, 402);
+            this.dgvUsers.TabIndex = 0;
+            this.dgvUsers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellClick);
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
+            this.panel4.Controls.Add(this.btnRefresh);
             this.panel4.Controls.Add(this.btSearch);
-            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Controls.Add(this.tbSearchString);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(521, 48);
             this.panel4.TabIndex = 0;
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.SlateGray;
+            this.btnRefresh.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnRefresh.Location = new System.Drawing.Point(12, 3);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(88, 40);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // btSearch
             // 
             this.btSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btSearch.BackColor = System.Drawing.Color.SlateGray;
             this.btSearch.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btSearch.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.btSearch.IconColor = System.Drawing.Color.Black;
+            this.btSearch.IconColor = System.Drawing.Color.White;
             this.btSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btSearch.IconSize = 25;
-            this.btSearch.Location = new System.Drawing.Point(471, 8);
+            this.btSearch.Location = new System.Drawing.Point(471, 3);
             this.btSearch.Name = "btSearch";
             this.btSearch.Rotation = 0D;
-            this.btSearch.Size = new System.Drawing.Size(30, 30);
+            this.btSearch.Size = new System.Drawing.Size(35, 35);
             this.btSearch.TabIndex = 1;
-            this.btSearch.UseVisualStyleBackColor = true;
+            this.btSearch.UseVisualStyleBackColor = false;
+            this.btSearch.Click += new System.EventHandler(this.btSearch_Click);
             // 
-            // textBox1
+            // tbSearchString
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(324, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(141, 22);
-            this.textBox1.TabIndex = 0;
+            this.tbSearchString.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbSearchString.Location = new System.Drawing.Point(324, 12);
+            this.tbSearchString.Name = "tbSearchString";
+            this.tbSearchString.Size = new System.Drawing.Size(141, 22);
+            this.tbSearchString.TabIndex = 0;
+            this.tbSearchString.TextChanged += new System.EventHandler(this.txbSearch_TextChanged);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(110)))), ((int)(((byte)(122)))));
-            this.panel2.Controls.Add(this.btAdd);
-            this.panel2.Controls.Add(this.btDelete);
-            this.panel2.Controls.Add(this.tbNBP);
+            this.panel2.Controls.Add(this.cbbOffice);
+            this.panel2.Controls.Add(this.btBrown);
+            this.panel2.Controls.Add(this.ptbAvatar);
+            this.panel2.Controls.Add(this.pnFunction);
+            this.panel2.Controls.Add(this.pnAdd);
             this.panel2.Controls.Add(this.tbMail);
-            this.panel2.Controls.Add(this.tbOffice);
             this.panel2.Controls.Add(this.tbName);
-            this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
@@ -136,85 +184,152 @@
             this.panel2.Size = new System.Drawing.Size(279, 450);
             this.panel2.TabIndex = 0;
             // 
-            // btAdd
+            // cbbOffice
             // 
-            this.btAdd.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btAdd.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btAdd.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
-            this.btAdd.IconColor = System.Drawing.Color.Black;
-            this.btAdd.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btAdd.IconSize = 48;
-            this.btAdd.Location = new System.Drawing.Point(28, 240);
-            this.btAdd.Name = "btAdd";
-            this.btAdd.Rotation = 0D;
-            this.btAdd.Size = new System.Drawing.Size(155, 45);
-            this.btAdd.TabIndex = 10;
-            this.btAdd.Text = "ADD";
-            this.btAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btAdd.UseVisualStyleBackColor = true;
+            this.cbbOffice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbOffice.FormattingEnabled = true;
+            this.cbbOffice.Items.AddRange(new object[] {
+            "admin",
+            "user"});
+            this.cbbOffice.Location = new System.Drawing.Point(79, 168);
+            this.cbbOffice.Name = "cbbOffice";
+            this.cbbOffice.Size = new System.Drawing.Size(185, 24);
+            this.cbbOffice.TabIndex = 16;
+            // 
+            // btBrown
+            // 
+            this.btBrown.BackColor = System.Drawing.Color.SlateGray;
+            this.btBrown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btBrown.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btBrown.Location = new System.Drawing.Point(209, 63);
+            this.btBrown.Name = "btBrown";
+            this.btBrown.Size = new System.Drawing.Size(58, 29);
+            this.btBrown.TabIndex = 15;
+            this.btBrown.Text = "Brown";
+            this.btBrown.UseVisualStyleBackColor = false;
+            this.btBrown.Click += new System.EventHandler(this.btBrown_Click);
+            // 
+            // ptbAvatar
+            // 
+            this.ptbAvatar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ptbAvatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ptbAvatar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptbAvatar.Location = new System.Drawing.Point(99, 12);
+            this.ptbAvatar.Name = "ptbAvatar";
+            this.ptbAvatar.Size = new System.Drawing.Size(104, 84);
+            this.ptbAvatar.TabIndex = 14;
+            this.ptbAvatar.TabStop = false;
+            // 
+            // pnFunction
+            // 
+            this.pnFunction.Controls.Add(this.btDelete);
+            this.pnFunction.Controls.Add(this.btAdd);
+            this.pnFunction.Location = new System.Drawing.Point(20, 338);
+            this.pnFunction.Name = "pnFunction";
+            this.pnFunction.Size = new System.Drawing.Size(244, 100);
+            this.pnFunction.TabIndex = 13;
             // 
             // btDelete
             // 
-            this.btDelete.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btDelete.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btDelete.IconChar = FontAwesome.Sharp.IconChar.Eraser;
-            this.btDelete.IconColor = System.Drawing.Color.Black;
-            this.btDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btDelete.IconSize = 48;
-            this.btDelete.Location = new System.Drawing.Point(28, 178);
+            this.btDelete.BackColor = System.Drawing.Color.SlateGray;
+            this.btDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btDelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btDelete.Location = new System.Drawing.Point(39, 63);
             this.btDelete.Name = "btDelete";
-            this.btDelete.Rotation = 0D;
-            this.btDelete.Size = new System.Drawing.Size(155, 45);
-            this.btDelete.TabIndex = 8;
-            this.btDelete.Text = "DELETE";
-            this.btDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btDelete.UseVisualStyleBackColor = true;
+            this.btDelete.Size = new System.Drawing.Size(166, 37);
+            this.btDelete.TabIndex = 16;
+            this.btDelete.Text = "Delete";
+            this.btDelete.UseVisualStyleBackColor = false;
+            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
             // 
-            // tbNBP
+            // btAdd
             // 
-            this.tbNBP.Location = new System.Drawing.Point(79, 122);
-            this.tbNBP.Name = "tbNBP";
-            this.tbNBP.Size = new System.Drawing.Size(51, 22);
-            this.tbNBP.TabIndex = 7;
+            this.btAdd.BackColor = System.Drawing.Color.SlateGray;
+            this.btAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btAdd.Location = new System.Drawing.Point(39, 3);
+            this.btAdd.Name = "btAdd";
+            this.btAdd.Size = new System.Drawing.Size(166, 36);
+            this.btAdd.TabIndex = 15;
+            this.btAdd.Text = "ADD";
+            this.btAdd.UseVisualStyleBackColor = false;
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
             // 
-            // tbMail
+            // pnAdd
             // 
-            this.tbMail.Location = new System.Drawing.Point(79, 86);
-            this.tbMail.Name = "tbMail";
-            this.tbMail.Size = new System.Drawing.Size(185, 22);
-            this.tbMail.TabIndex = 6;
+            this.pnAdd.Controls.Add(this.txbPass);
+            this.pnAdd.Controls.Add(this.label4);
+            this.pnAdd.Controls.Add(this.btCancel);
+            this.pnAdd.Controls.Add(this.btnOk);
+            this.pnAdd.Location = new System.Drawing.Point(6, 240);
+            this.pnAdd.Name = "pnAdd";
+            this.pnAdd.Size = new System.Drawing.Size(270, 92);
+            this.pnAdd.TabIndex = 12;
             // 
-            // tbOffice
+            // txbPass
             // 
-            this.tbOffice.Location = new System.Drawing.Point(79, 50);
-            this.tbOffice.Name = "tbOffice";
-            this.tbOffice.Size = new System.Drawing.Size(185, 22);
-            this.tbOffice.TabIndex = 5;
-            // 
-            // tbName
-            // 
-            this.tbName.Location = new System.Drawing.Point(79, 13);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(185, 22);
-            this.tbName.TabIndex = 4;
+            this.txbPass.Location = new System.Drawing.Point(73, 14);
+            this.txbPass.Name = "txbPass";
+            this.txbPass.Size = new System.Drawing.Size(185, 22);
+            this.txbPass.TabIndex = 14;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label4.Location = new System.Drawing.Point(16, 120);
+            this.label4.Location = new System.Drawing.Point(3, 14);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 24);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "NBP:";
+            this.label4.Size = new System.Drawing.Size(55, 24);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Pass:";
+            // 
+            // btCancel
+            // 
+            this.btCancel.BackColor = System.Drawing.Color.SlateGray;
+            this.btCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btCancel.Location = new System.Drawing.Point(177, 60);
+            this.btCancel.Name = "btCancel";
+            this.btCancel.Size = new System.Drawing.Size(84, 29);
+            this.btCancel.TabIndex = 12;
+            this.btCancel.Text = "CANCEL";
+            this.btCancel.UseVisualStyleBackColor = false;
+            this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
+            // 
+            // btnOk
+            // 
+            this.btnOk.BackColor = System.Drawing.Color.SlateGray;
+            this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOk.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnOk.Location = new System.Drawing.Point(14, 60);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(84, 29);
+            this.btnOk.TabIndex = 11;
+            this.btnOk.Text = "OK";
+            this.btnOk.UseVisualStyleBackColor = false;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // tbMail
+            // 
+            this.tbMail.Location = new System.Drawing.Point(79, 212);
+            this.tbMail.Name = "tbMail";
+            this.tbMail.Size = new System.Drawing.Size(185, 22);
+            this.tbMail.TabIndex = 6;
+            // 
+            // tbName
+            // 
+            this.tbName.Location = new System.Drawing.Point(79, 123);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(185, 22);
+            this.tbName.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label3.Location = new System.Drawing.Point(16, 86);
+            this.label3.Location = new System.Drawing.Point(9, 213);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 24);
             this.label3.TabIndex = 2;
@@ -225,7 +340,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label2.Location = new System.Drawing.Point(6, 48);
+            this.label2.Location = new System.Drawing.Point(6, 170);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 24);
             this.label2.TabIndex = 1;
@@ -236,23 +351,38 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(6, 12);
+            this.label1.Location = new System.Drawing.Point(6, 122);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name:";
             // 
-            // dataGridView1
+            // cUsername
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(164)))), ((int)(((byte)(174)))));
-            this.dataGridView1.ColumnHeadersHeight = 29;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(521, 402);
-            this.dataGridView1.TabIndex = 0;
+            this.cUsername.DataPropertyName = "userName";
+            this.cUsername.HeaderText = "Username";
+            this.cUsername.MinimumWidth = 6;
+            this.cUsername.Name = "cUsername";
+            this.cUsername.ReadOnly = true;
+            this.cUsername.Width = 125;
+            // 
+            // cOffice
+            // 
+            this.cOffice.DataPropertyName = "office";
+            this.cOffice.HeaderText = "Office";
+            this.cOffice.MinimumWidth = 6;
+            this.cOffice.Name = "cOffice";
+            this.cOffice.ReadOnly = true;
+            this.cOffice.Width = 125;
+            // 
+            // cEmail
+            // 
+            this.cEmail.DataPropertyName = "mail";
+            this.cEmail.HeaderText = "Email";
+            this.cEmail.MinimumWidth = 6;
+            this.cEmail.Name = "cEmail";
+            this.cEmail.ReadOnly = true;
+            this.cEmail.Width = 125;
             // 
             // UserForm
             // 
@@ -265,11 +395,15 @@
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).EndInit();
+            this.pnFunction.ResumeLayout(false);
+            this.pnAdd.ResumeLayout(false);
+            this.pnAdd.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -281,18 +415,28 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
         private FontAwesome.Sharp.IconButton btSearch;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbSearchString;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private FontAwesome.Sharp.IconButton btAdd;
-        private FontAwesome.Sharp.IconButton btDelete;
-        private System.Windows.Forms.TextBox tbNBP;
         private System.Windows.Forms.TextBox tbMail;
-        private System.Windows.Forms.TextBox tbOffice;
         private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvUsers;
+        private System.Windows.Forms.Panel pnFunction;
+        private System.Windows.Forms.Panel pnAdd;
+        private System.Windows.Forms.TextBox txbPass;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btCancel;
+        private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.Button btBrown;
+        private System.Windows.Forms.PictureBox ptbAvatar;
+        private System.Windows.Forms.ComboBox cbbOffice;
+        private System.Windows.Forms.Button btDelete;
+        private System.Windows.Forms.Button btAdd;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cUsername;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cOffice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cEmail;
     }
 }

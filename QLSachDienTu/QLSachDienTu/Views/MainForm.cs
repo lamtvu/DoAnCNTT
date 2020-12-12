@@ -1,5 +1,6 @@
 ﻿using FontAwesome.Sharp;
 using QLSachDienTu.Views;
+using QLSachDienTu.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,9 @@ namespace QLSachDienTu
     {
         private IconButton currentIconButton;
         private Panel LeftBorderPanel;
-        private Form currentChildForm;
+        private static Form currentChildForm;
+        public static User currentUser { get; set; }
+
         public MainForm()
         {
             InitializeComponent();
@@ -29,7 +32,7 @@ namespace QLSachDienTu
             this.DoubleBuffered = true;
             this.FormBorderStyle = FormBorderStyle.None;
             this.Text = string.Empty;
-            OpenChildForm(new LogoForm());
+            currentUser = null;
         }
         private void OpenChildForm(Form childForm)
         {
@@ -97,17 +100,32 @@ namespace QLSachDienTu
 
         private void Logo_click(object sender, EventArgs e)
         {
+            if (currentUser == null)
+            {
+                OpenChildForm(new LoginForm());
+                return;
+            }
             Reset();
             OpenChildForm(new LogoForm());
         }
         private void btPersonal_Click(object sender, EventArgs e)
         {
+            if (currentUser == null)
+            {
+                OpenChildForm(new LoginForm());
+                return;
+            }
             OpenChildForm(new PersonalForm());
             ActiveButton(sender);
         }
 
         private void btGeneral_Click(object sender, EventArgs e)
         {
+            if (currentUser == null)
+            {
+                OpenChildForm(new LoginForm());
+                return;
+            }
             OpenChildForm(new GeneralForm());
             ActiveButton(sender);
 
@@ -115,6 +133,11 @@ namespace QLSachDienTu
 
         private void btUsers_Click(object sender, EventArgs e)
         {
+            if (currentUser == null)
+            {
+                OpenChildForm(new LoginForm());
+                return;
+            }
             OpenChildForm(new UserForm());
             ActiveButton(sender);
 
@@ -122,12 +145,22 @@ namespace QLSachDienTu
 
         private void btMail_Click(object sender, EventArgs e)
         {
+            if (currentUser == null)
+            {
+                OpenChildForm(new LoginForm());
+                return;
+            }
             OpenChildForm(new MailForm());
             ActiveButton(sender);
         }
 
         private void btSchedule_Click(object sender, EventArgs e)
         {
+            if (currentUser == null)
+            {
+                OpenChildForm(new LoginForm());
+                return;
+            }
             OpenChildForm(new ScheduleForm());
             ActiveButton(sender);
         }
@@ -168,6 +201,38 @@ namespace QLSachDienTu
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            if (currentUser == null)
+            {
+                OpenChildForm(new LoginForm());
+            }
+            else
+            {
+                OpenChildForm(new LogoForm());
+            }
+        }
+
+        private void btLogout_Click(object sender, EventArgs e)
+        {
+            if (currentUser == null)
+            {
+                return;
+            }
+            using (MessengerForm form = new MessengerForm("Do you logout?"))
+            {
+                form.FormBorderStyle = FormBorderStyle.None;
+                if (form.ShowDialog() == DialogResult.Yes)
+                {
+                    currentUser = null;
+                }
+                else
+                    return;
+            }
+            Reset();
+            OpenChildForm(new LoginForm());
         }
     }
 }

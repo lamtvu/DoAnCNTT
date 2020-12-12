@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QLSachDienTu.Controllers;
+using QLSachDienTu.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,16 +21,53 @@ namespace QLSachDienTu.Views
         }
         private void SetStyleDataGripView()
         {
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(55, 71, 79);
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridView1.ColumnHeadersHeight = 40;
-            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Gainsboro;
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridView1.RowsDefaultCellStyle.SelectionBackColor = Color.FromArgb(120, 144, 156);
+            dgvSchedule.EnableHeadersVisualStyles = false;
+            dgvSchedule.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvSchedule.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(55, 71, 79);
+            dgvSchedule.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dgvSchedule.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvSchedule.ColumnHeadersHeight = 40;
+            dgvSchedule.ColumnHeadersDefaultCellStyle.ForeColor = Color.Gainsboro;
+            dgvSchedule.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvSchedule.RowsDefaultCellStyle.SelectionBackColor = Color.FromArgb(120, 144, 156);
+            dgvSchedule.RowsDefaultCellStyle.BackColor = Color.White;
+            dgvSchedule.RowsDefaultCellStyle.ForeColor = Color.Black;
+            dgvSchedule.DataSource = ScheduleController.GetSchedules(MainForm.currentUser);
         }
 
+        private void btDownload_Click(object sender, EventArgs e)
+        {
+            if (dgvSchedule.CurrentRow == null)
+            {
+                return;
+            }
+            if (dgvSchedule.CurrentRow.Cells["cRefuseOrAccept"].Value.ToString() == "Refuse")
+            {
+                using (MessengerForm form = new MessengerForm("the poster refused the request"))
+                {
+                    form.ShowDialog();
+                }
+                return;
+            }
+
+            Book book = BookController.GetBook(Convert.ToInt32(dgvSchedule.CurrentRow.Cells["cBookId"].Value));
+            string path = fileController.GetSavePath(book.fileType, book.bookName);
+            if (path == string.Empty)
+            {
+                return;
+            }
+            fileController.DowloadFile(book.source, fileController.GetSavePath(book.fileType, book.bookName));
+
+        }
+
+        private void btDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvSchedule.CurrentRow == null)
+            {
+                return;
+            }
+            ScheduleController.Delete(ScheduleController.GetSchedule(MainForm.currentUser, Convert.ToInt32(dgvSchedule.CurrentRow.Cells["cBookId"].Value)) as Schedule);
+            dgvSchedule.DataSource = ScheduleController.GetSchedules(MainForm.currentUser);
+        }
     }
 }

@@ -12,19 +12,24 @@ namespace QLSachDienTu.Models
     [Table("Book")]
     public class Book
     {
-        [MaxLength(7)]
-        public string bookID { get; set; }
+        [Key]
+        public int id { get; set; }
+        [StringLength(20)]
+        public string posterName { get; set; }
+        [StringLength(50)]
         public string bookName { get; set; }
+        [StringLength(50)]
         public string author { get; set; }
+        [StringLength(30)]
         public string kind { get; set; }
-       
-        public string filType { get; set; }
+        [StringLength(10)]
+        public string fileType { get; set; }
+        [StringLength(10)]
         public string privateOrPublic { get; set; }
         public byte[] source { get; set; }
+
         public User poster { get; set; }
-        public ICollection<Mail> bookinMail { get; set; }
- 
-
-
+        public virtual ICollection<Mail> mails { get; set; }
+        public virtual ICollection<Schedule> bSchedule { get; set; }
     }
 }

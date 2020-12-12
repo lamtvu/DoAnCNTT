@@ -7,21 +7,24 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
 namespace QLSachDienTu.Models
-{   
+{
     [Table("User")]
     public class User
     {
         [Key]
-        public string username { get; set; }
+        [StringLength(20)]
+        public string userName { get; set; }
+        [StringLength(20)]
         public string office { get; set; }
+        [StringLength(50)]
         public string mail { get; set; }
-        private string password { get; set; }
+        [StringLength(20)]
+        public string password { get; set; }
         public byte[] avatar { get; set; }
 
-        public ICollection<Mail> mailSent { get; set; }
-        public ICollection<Mail> mailReceive { get; set; }
-
-        public ICollection<Schedule> schedule { get; set; }
-        public ICollection<Book> bookOwner { get; set; }
+        public virtual ICollection<Mail> mailSents { get; set; }
+        public virtual ICollection<Mail> mailReceives { get; set; }
+        public virtual ICollection<Schedule> uSchedules { get; set; }
+        public virtual ICollection<Book> ownerBooks { get; set; }
     }
 }
