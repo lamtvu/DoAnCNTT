@@ -11,11 +11,15 @@ namespace QLSachDienTu.Controllers
     {
         public static byte[] ConvertToByteArray(Image image)
         {
-            return null;
+            return (byte[])((new ImageConverter()).ConvertTo(image, typeof(byte[])));
         }
         public static Image ConvertByteArrayToImage(byte[] b)
         {
-            return null;
-         }
+            if (b.Length == 0 || b == null)
+            {
+                return null;
+            }
+            return (Bitmap)((new ImageConverter()).ConvertFrom(b));
+        }
     }
 }

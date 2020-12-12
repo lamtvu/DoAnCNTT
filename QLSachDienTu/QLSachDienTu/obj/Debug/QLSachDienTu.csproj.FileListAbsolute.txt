@@ -60,3 +60,25 @@ E:\DoAnCNTT\QLSachDienTu\QLSachDienTu\obj\Debug\QLSachDienTu.csproj.CopyComplete
 E:\DoAnCNTT\QLSachDienTu\QLSachDienTu\obj\Debug\QLSachDienTu.exe
 E:\DoAnCNTT\QLSachDienTu\QLSachDienTu\obj\Debug\QLSachDienTu.pdb
 E:\DoAnCNTT\QLSachDienTu\QLSachDienTu\obj\Debug\QLSachDienTu.Views.GeneralForm.resources
+C:\Users\Nguyen Duy Khang\Desktop\DA_Final\DoAnCNTT\QLSachDienTu\QLSachDienTu\bin\Debug\QLSachDienTu.exe.config
+C:\Users\Nguyen Duy Khang\Desktop\DA_Final\DoAnCNTT\QLSachDienTu\QLSachDienTu\bin\Debug\QLSachDienTu.exe
+C:\Users\Nguyen Duy Khang\Desktop\DA_Final\DoAnCNTT\QLSachDienTu\QLSachDienTu\bin\Debug\QLSachDienTu.pdb
+C:\Users\Nguyen Duy Khang\Desktop\DA_Final\DoAnCNTT\QLSachDienTu\QLSachDienTu\bin\Debug\EntityFramework.dll
+C:\Users\Nguyen Duy Khang\Desktop\DA_Final\DoAnCNTT\QLSachDienTu\QLSachDienTu\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nguyen Duy Khang\Desktop\DA_Final\DoAnCNTT\QLSachDienTu\QLSachDienTu\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\Nguyen Duy Khang\Desktop\DA_Final\DoAnCNTT\QLSachDienTu\QLSachDienTu\bin\Debug\EntityFramework.xml
+C:\Users\Nguyen Duy Khang\Desktop\DA_Final\DoAnCNTT\QLSachDienTu\QLSachDienTu\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nguyen Duy Khang\Desktop\DA_Final\DoAnCNTT\QLSachDienTu\QLSachDienTu\obj\Debug\QLSachDienTu.csprojAssemblyReference.cache
+C:\Users\Nguyen Duy Khang\Desktop\DA_Final\DoAnCNTT\QLSachDienTu\QLSachDienTu\obj\Debug\QLSachDienTu.Views.GeneralForm.resources
+C:\Users\Nguyen Duy Khang\Desktop\DA_Final\DoAnCNTT\QLSachDienTu\QLSachDienTu\obj\Debug\QLSachDienTu.Views.LogoForm.resources
+C:\Users\Nguyen Duy Khang\Desktop\DA_Final\DoAnCNTT\QLSachDienTu\QLSachDienTu\obj\Debug\QLSachDienTu.Views.MailForm.resources
+C:\Users\Nguyen Duy Khang\Desktop\DA_Final\DoAnCNTT\QLSachDienTu\QLSachDienTu\obj\Debug\QLSachDienTu.MainForm.resources
+C:\Users\Nguyen Duy Khang\Desktop\DA_Final\DoAnCNTT\QLSachDienTu\QLSachDienTu\obj\Debug\QLSachDienTu.Properties.Resources.resources
+C:\Users\Nguyen Duy Khang\Desktop\DA_Final\DoAnCNTT\QLSachDienTu\QLSachDienTu\obj\Debug\QLSachDienTu.Views.PersonalForm.resources
+C:\Users\Nguyen Duy Khang\Desktop\DA_Final\DoAnCNTT\QLSachDienTu\QLSachDienTu\obj\Debug\QLSachDienTu.Views.ScheduleForm.resources
+C:\Users\Nguyen Duy Khang\Desktop\DA_Final\DoAnCNTT\QLSachDienTu\QLSachDienTu\obj\Debug\QLSachDienTu.Views.UserForm.resources
+C:\Users\Nguyen Duy Khang\Desktop\DA_Final\DoAnCNTT\QLSachDienTu\QLSachDienTu\obj\Debug\QLSachDienTu.csproj.GenerateResource.cache
+C:\Users\Nguyen Duy Khang\Desktop\DA_Final\DoAnCNTT\QLSachDienTu\QLSachDienTu\obj\Debug\QLSachDienTu.csproj.CoreCompileInputs.cache
+C:\Users\Nguyen Duy Khang\Desktop\DA_Final\DoAnCNTT\QLSachDienTu\QLSachDienTu\obj\Debug\QLSachDienTu.csproj.CopyComplete
+C:\Users\Nguyen Duy Khang\Desktop\DA_Final\DoAnCNTT\QLSachDienTu\QLSachDienTu\obj\Debug\QLSachDienTu.exe
+C:\Users\Nguyen Duy Khang\Desktop\DA_Final\DoAnCNTT\QLSachDienTu\QLSachDienTu\obj\Debug\QLSachDienTu.pdb
