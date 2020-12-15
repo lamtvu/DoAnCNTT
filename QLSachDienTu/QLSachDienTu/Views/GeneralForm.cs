@@ -61,7 +61,7 @@ namespace QLSachDienTu.Views
                 {
                     return;
                 }
-                fileController.DowloadFile(book.source, fileController.GetSavePath(book.fileType, book.bookName));
+                fileController.DowloadFile(book.source, path);
                 Cursor.Current = Cursors.Default;
                 return;
             }
