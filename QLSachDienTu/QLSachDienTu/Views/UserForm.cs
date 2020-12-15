@@ -105,7 +105,22 @@ namespace QLSachDienTu.Views
                 }
                 return;
             }
-
+            if (tbName.Text.Length >= 20 || tbName.Text.Length < 5)
+            {
+                using (MessengerForm form = new MessengerForm("Username is invalid"))
+                {
+                    form.ShowDialog();
+                }
+                return;
+            }
+            if (txbPass.Text.Length < 5 || txbPass.Text.Length >= 20)
+            {
+                using (MessengerForm form = new MessengerForm("password is invalid"))
+                {
+                    form.ShowDialog();
+                }
+                return;
+            }
             User user = new User();
             user.userName = tbName.Text.Trim();
             user.office = cbbOffice.Text;
@@ -114,6 +129,7 @@ namespace QLSachDienTu.Views
             user.avatar = ImageController.ConvertToByteArray(ptbAvatar.BackgroundImage);
             UserController.Add(user);
             dgvUsers.DataSource = UserController.getUsers();
+            closeAdd();
         }
 
         private void btBrown_Click(object sender, EventArgs e)
@@ -138,6 +154,14 @@ namespace QLSachDienTu.Views
             if (dgvUsers.CurrentRow == null)
             {
                 return;
+            }
+            if (UserController.GetUser(dgvUsers.CurrentRow.Cells["cUsername"].Value.ToString()).office == "admin")
+            {
+                using (MessengerForm form = new MessengerForm("Can't delete admin"))
+                {
+                    form.ShowDialog();
+                    return;
+                }
             }
             UserController.Delete(UserController.GetUser(dgvUsers.CurrentRow.Cells["cUsername"].Value.ToString()));
             dgvUsers.DataSource = UserController.getUsers();

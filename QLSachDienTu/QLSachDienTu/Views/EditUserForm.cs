@@ -73,7 +73,7 @@ namespace QLSachDienTu.Views
             {
                 return;
             }
-            if (fileType != "png" && fileType != ".jpg" && fileType != "jfif" && fileType != "peg")
+            if (fileType != "png" && fileType != "jpg" && fileType != "jfif" && fileType != "peg")
             {
                 MessengerForm form = new MessengerForm("File is invalid.");
                 form.ShowDialog();
@@ -98,7 +98,7 @@ namespace QLSachDienTu.Views
             }
             if (Regex.IsMatch(txbGmail.Text, @"^[\w_-]{3,}@[\w-]{3,}(.[\w]{2,}){1,3}$") == false)
             {
-                error += "Password is invalid.";
+                error += "mail is invalid.";
             }
             return error;
         }

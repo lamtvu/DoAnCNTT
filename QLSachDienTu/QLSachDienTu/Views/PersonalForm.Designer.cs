@@ -355,6 +355,7 @@
             this.cId.MinimumWidth = 6;
             this.cId.Name = "cId";
             this.cId.ReadOnly = true;
+            this.cId.Visible = false;
             // 
             // cName
             // 
@@ -441,12 +442,12 @@
         private System.Windows.Forms.Label txbUserName;
         private System.Windows.Forms.Label txbMail;
         private System.Windows.Forms.Label txbOffice;
+        private FontAwesome.Sharp.IconButton btnDowload;
         private System.Windows.Forms.DataGridViewTextBoxColumn cId;
         private System.Windows.Forms.DataGridViewTextBoxColumn cName;
         private System.Windows.Forms.DataGridViewTextBoxColumn cKind;
         private System.Windows.Forms.DataGridViewTextBoxColumn cFileType;
         private System.Windows.Forms.DataGridViewTextBoxColumn cAuthor;
         private System.Windows.Forms.DataGridViewTextBoxColumn cPublicOrPrivate;
-        private FontAwesome.Sharp.IconButton btnDowload;
     }
 }

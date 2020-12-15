@@ -104,13 +104,17 @@ namespace QLSachDienTu.Views
         private string CheckInput()
         {
             string error = "";
-            if (!Regex.IsMatch(txbName.Text.Trim(), @"^[\w\s]{5,20}$"))
+            if (txbName.Text.Length < 5 || txbName.Text.Length > 50)
             {
                 error += "Name is invalid. ";
             }
             if (txbFile.Text == "" || txbFile.Text == string.Empty)
             {
                 error += "File is null.";
+            }
+            if (txbAuthor.Text.Length > 50)
+            {
+                error += "Author is invalid. ";
             }
             return error;
         }

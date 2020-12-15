@@ -58,8 +58,6 @@ namespace QLSachDienTu.Controllers
                 context.SaveChanges();
             }
         }
-
-
         public static void Delete(Schedule schedule)
         {
             using (EBookContext context = new EBookContext())
